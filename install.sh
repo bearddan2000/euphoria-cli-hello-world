@@ -96,9 +96,9 @@ function start-up(){
 
     echo "$info_base starting services" >> $logfile
 
-    sudo docker run -ti --rm -w /code -v $pwd/bin:/code \
-      openeuphoria/euphoria \
-      bash -c "eui hello.eu"
+    sudo docker build -t $docker_img_name .
+
+    sudo docker run --rm $docker_img_name
 
     echo "$info_base ended" >> $logfile
 
